@@ -1,0 +1,155 @@
+/* Projects.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+#projects {
+  background: linear-gradient(135deg, #1a1c27, #2c3e50); /* Dark gradient background */
+  color: #ffffff; /* Light text color for contrast */
+  padding: 80px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ff6f61; /* Coral color for title */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.category-btn {
+  background: #383838;
+  color: #ffffff;
+  border: none; /* No outline */
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: #ff6f61; /* Coral on hover */
+  color: #ffffff;
+}
+
+.project-card {
+  background: #ffffff; /* White background for the card */
+  border: none; /* No border for a cleaner look */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Strong shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 20px;
+  background: rgba(255, 255, 255, 1); /* Solid background for card content */
+  color: #1a1c27;
+  opacity: 0;
+  transition: opacity 0.3s, background-color 0.3s;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+}
+
+.project-card:hover .card-content {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.8); /* Add transparency on hover */
+}
+
+.card-title {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+  color: #ff6f61; /* Coral color for title */
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #1a1c27; /* Dark text for descriptions */
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.technologies .technology-icon {
+  margin-right: 10px;
+  color: #ff6f61;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.technologies .technology-icon:hover {
+  color: #1a1c27; /* Dark color on hover */
+  transform: scale(1.2);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #ff6f61, #e55a50); /* Coral gradient for button */
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.btn-info:hover {
+  background-color: #e55a50;
+  transform: translateY(-5px);
+}
+
+/* Media Queries for Tablet and Mobile */
+@media (max-width: 1024px) {
+  .card-content {
+    opacity: 1;
+    position: relative;
+    background: rgba(255, 255, 255, 1); /* Solid background for smaller screens */
+  }
+
+  .project-card img {
+    border-radius: 15px 15px 0 0; /* Keep rounded corners only at the top */
+  }
+}

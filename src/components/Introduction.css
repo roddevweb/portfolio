@@ -1,0 +1,183 @@
+/* Introduction.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+#introduction {
+  background: linear-gradient(135deg, #0A0F1D, #343A40); /* Degradê de azul escuro para cinza escuro */
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+  padding: 100px 0;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#introduction .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+#introduction .text-container {
+  text-align: left;
+  max-width: 600px;
+}
+
+#introduction h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff; /* Branco para "Bonjour, je m'appelle" */
+  animation: textFadeIn 2s ease-in-out;
+}
+
+#introduction h1 .text-highlight {
+  color: #FF6F61; /* Coral para o seu nome */
+  font-weight: bold;
+}
+
+#introduction p.lead {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #dddddd;
+  animation: textFadeIn 2.5s ease-in-out;
+}
+
+#introduction .btn-primary.button-highlight {
+  background: linear-gradient(135deg, #FF6F61, #FFC107); /* Degradê de coral para amarelo */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 20px;
+  animation: buttonFadeIn 3s ease-in-out;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+#introduction .btn-primary.button-highlight:hover {
+  background-color: #E55A50;
+  transform: translateY(-5px);
+}
+
+#introduction .social-icons {
+  display: flex;
+  gap: 15px;
+  animation: iconsFadeIn 3.5s ease-in-out;
+}
+
+#introduction .social-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#introduction .social-icons a:hover {
+  color: #FF6F61; /* Coral ao passar o mouse */
+  transform: scale(1.2);
+}
+
+#introduction .button-and-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#introduction .video-container {
+  position: relative;
+  width: 50%;
+  padding-bottom: 28.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  animation: videoFadeIn 4s ease-in-out;
+}
+
+#introduction .video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes videoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #introduction .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #introduction .video-container {
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção 16:9 para telas menores */
+    order: 2;
+  }
+
+  #introduction .text-container {
+    order: 1;
+  }
+
+  #introduction .button-and-icons {
+    order: 3;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #introduction .btn-primary.button-highlight {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
