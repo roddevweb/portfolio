@@ -1,61 +1,200 @@
-/* Footer.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #FF6B6B;
+  --primary-light: #FF8E8E;
+  --primary-dark: #E05050;
+  --text-dark: #2D3748;
+  --text-light: #FFFFFF;
+  --text-muted: #718096;
+  --background-light: #FFFFFF;
+  --background-off-white: #F8F9FA;
+  --background-alt: #F0F2F5;
+  --background-dark: #2D3748;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+}
 
 #footer {
-  background: linear-gradient(135deg, #1a1c27, #2c3e50); /* Dark gradient background */
-  color: #ffffff; /* Light text color for contrast */
-  padding: 60px 0;
-  font-family: 'Poppins', sans-serif;
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: 80px 0 40px;
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  position: relative;
 }
 
 #footer h5 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ff6f61; /* Coral color for titles */
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 #footer p {
   font-size: 1rem;
-  line-height: 1.5;
-  color: #b3b3b3; /* Light grey for text */
+  line-height: 1.6;
+  color: var(--text-light);
+  opacity: 0.8;
 }
 
 #footer a {
-  color: #ffffff;
+  color: var(--text-light);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 #footer a:hover {
-  color: #ff6f61; /* Coral on hover */
+  color: var(--primary-color);
 }
 
 .social-icons {
   display: flex;
   gap: 15px;
   font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 .social-icons a {
-  transition: color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #ff6f61; /* Coral on hover */
+  color: var(--text-light);
+  background: var(--primary-color);
   transform: translateY(-5px);
 }
 
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-links ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0;
+}
+
+.footer-links ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.footer-links ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.footer-links ul li a:hover::after {
+  width: 100%;
+}
+
 .footer-bottom {
-  border-top: 1px solid #444;
-  padding-top: 20px;
-  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .footer-bottom p {
   margin: 0;
-  color: #b3b3b3; /* Light grey for footer bottom text */
+  color: var(--text-light);
+  opacity: 0.7;
+  font-size: 0.9rem;
 }
 
 .footer-bottom p a {
-  color: #ff6f61; /* Coral for links */
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top svg {
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    padding: 60px 0 30px;
+  }
+  
+  #footer h5 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    margin-top: 15px;
+  }
+
+  .footer-links ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-bottom p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .scroll-to-top svg {
+    font-size: 20px;
+  }
 }

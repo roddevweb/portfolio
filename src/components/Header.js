@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
 const Header = ({ onLanguageChange }) => {
   const [language, setLanguage] = useState('fr');
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef(null);
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -16,14 +16,23 @@ const Header = ({ onLanguageChange }) => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -31,9 +40,9 @@ const Header = ({ onLanguageChange }) => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container d-flex justify-content-between align-items-center py-3">
         <div className="logo">
-          <a href="#home">MeuLogo</a>
+          <img src="/logo-rcoelhoweb-1.png" alt="Rodrigo Coelho Logo" />
         </div>
-        <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
+        <nav ref={menuRef} className={`nav ${menuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             <li className="nav-item">
               <a href="#home" className="nav-link">Home</a>
@@ -57,13 +66,13 @@ const Header = ({ onLanguageChange }) => {
             className={`btn btn-language ${language === 'fr' ? 'active' : ''}`}
             onClick={() => handleLanguageChange('fr')}
           >
-            FR
+            <img src="/Flag_of_Quebec.svg" alt="FR" className="flag-icon" />
           </button>
           <button 
             className={`btn btn-language ml-2 ${language === 'en' ? 'active' : ''}`}
             onClick={() => handleLanguageChange('en')}
           >
-            EN
+            <img src="/Flag_of_Canada.svg" alt="EN" className="flag-icon" />
           </button>
         </div>
         <div className="menu-toggle" onClick={toggleMenu}>

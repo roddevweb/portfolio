@@ -1,29 +1,47 @@
 /* Projects.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #FF6B6B;
+  --primary-light: #FF8E8E;
+  --primary-dark: #E05050;
+  --text-dark: #2D3748;
+  --text-light: #FFFFFF;
+  --text-muted: #718096;
+  --background-light: #FFFFFF;
+  --background-off-white: #F8F9FA;
+  --background-alt: #F0F2F5;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+}
 
 #projects {
-  background: linear-gradient(135deg, #1a1c27, #2c3e50); /* Dark gradient background */
-  color: #ffffff; /* Light text color for contrast */
-  padding: 80px 0;
-  font-family: 'Poppins', sans-serif;
+  background: var(--background-light);
+  color: var(--text-dark);
+  padding: 100px 0;
+  font-family: 'Poppins', 'Manrope', sans-serif;
 }
 
 .section-title {
-  font-size: 2.8rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
   text-align: center;
-  color: #ff6f61; /* Coral color for title */
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: var(--text-dark);
+  font-weight: 600;
   position: relative;
 }
 
 .section-title::after {
   content: '';
   display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #ffffff;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -31,125 +49,194 @@
 .categories {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .category-btn {
-  background: #383838;
-  color: #ffffff;
-  border: none; /* No outline */
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 0 5px;
+  background: var(--background-off-white);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  margin: 0 8px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
 }
 
 .category-btn:hover,
 .category-btn.active {
-  background: #ff6f61; /* Coral on hover */
-  color: #ffffff;
+  background: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
 }
 
 .project-card {
-  background: #ffffff; /* White background for the card */
-  border: none; /* No border for a cleaner look */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Strong shadow */
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: var(--background-light);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
   margin-bottom: 30px;
   cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
 }
 
 .project-card img {
   width: 100%;
-  height: auto;
-  transition: transform 0.3s;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .card-content {
-  padding: 20px;
-  background: rgba(255, 255, 255, 1); /* Solid background for card content */
-  color: #1a1c27;
-  opacity: 0;
-  transition: opacity 0.3s, background-color 0.3s;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-radius: 0 0 15px 15px;
-}
-
-.project-card:hover .card-content {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.8); /* Add transparency on hover */
+  padding: 25px;
+  background: var(--background-light);
+  color: var(--text-dark);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
-  font-size: 1.75rem;
-  margin-bottom: 10px;
-  color: #ff6f61; /* Coral color for title */
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
 .card-text {
   font-size: 1rem;
-  color: #1a1c27; /* Dark text for descriptions */
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.technologies .technology-icon {
-  margin-right: 10px;
-  color: #ff6f61;
-  transition: color 0.3s, transform 0.3s;
+.technology-icon {
+  color: var(--text-muted);
+  transition: all 0.3s ease;
 }
 
-.technologies .technology-icon:hover {
-  color: #1a1c27; /* Dark color on hover */
-  transform: scale(1.2);
+.technology-icon:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 .btn-info {
-  background: linear-gradient(135deg, #ff6f61, #e55a50); /* Coral gradient for button */
+  background: var(--primary-color);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 10px;
-  border-radius: 5px;
-  color: #ffffff;
+  color: var(--text-light);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+  align-self: flex-start;
 }
 
 .btn-info:hover {
-  background-color: #e55a50;
-  transform: translateY(-5px);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
 
-/* Media Queries for Tablet and Mobile */
-@media (max-width: 1024px) {
-  .card-content {
-    opacity: 1;
-    position: relative;
-    background: rgba(255, 255, 255, 1); /* Solid background for smaller screens */
+/* Modal styles */
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-light);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  width: 90%;
+  max-width: 1200px;
+  outline: none;
+  padding: 30px;
+  box-shadow: var(--shadow-lg);
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(45, 55, 72, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  color: var(--text-dark);
+}
+
+.modal-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #projects {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
+  .categories {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 15px;
+  }
+
+  .category-btn {
+    margin: 5px;
+    padding: 10px 20px;
+  }
+
+  .project-card {
+    margin: 15px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+  
   .project-card img {
-    border-radius: 15px 15px 0 0; /* Keep rounded corners only at the top */
+    height: 200px;
   }
 }

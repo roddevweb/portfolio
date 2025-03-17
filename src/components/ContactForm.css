@@ -1,29 +1,48 @@
 /* ContactForm.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #FF6B6B;
+  --primary-light: #FF8E8E;
+  --primary-dark: #E05050;
+  --text-dark: #2D3748;
+  --text-light: #FFFFFF;
+  --text-muted: #718096;
+  --background-light: #FFFFFF;
+  --background-off-white: #F8F9FA;
+  --background-alt: #F0F2F5;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+}
 
 #contact {
-  background: linear-gradient(135deg, #1a1c27, #2c3e50); /* Dark gradient background */
-  color: #ffffff; /* Light text color for contrast */
-  padding: 80px 0;
-  font-family: 'Poppins', sans-serif;
+  background: var(--background-light);
+  color: var(--text-dark);
+  padding: 100px 0;
+  font-family: 'Poppins', 'Manrope', sans-serif;
   text-align: center;
 }
 
 .section-title {
-  font-size: 2.8rem;
-  margin-bottom: 2rem;
-  color: #ff6f61; /* Coral color for title */
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--text-dark);
+  font-weight: 600;
   position: relative;
 }
 
 .section-title::after {
   content: '';
   display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #ffffff;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -31,54 +50,106 @@
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
-  background: #ffffff; /* Light background for the form */
-  padding: 30px;
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Strong shadow */
+  background: var(--background-off-white);
+  padding: 40px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .contact-form:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
 }
 
 .contact-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  text-align: left;
 }
 
 .contact-form label {
   display: block;
-  margin-bottom: 5px;
-  color: #1a1c27; /* Dark color for labels */
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .contact-form .form-control {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  background: #f8f9fa; /* Light background for inputs */
-  color: #1a1c27; /* Dark text color */
-  transition: border-color 0.3s;
+  padding: 12px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-sm);
+  background: var(--background-light);
+  color: var(--text-dark);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
 }
 
 .contact-form .form-control:focus {
-  border-color: #ff6f61; /* Coral border color on focus */
+  border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
 }
 
 .contact-form button {
-  background-color: #ff6f61; /* Coral button */
-  border-color: #ff6f61;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: #ffffff; /* Light text color */
+  background-color: var(--primary-color);
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: var(--text-light);
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+  width: 100%;
+  margin-top: 10px;
 }
 
 .contact-form button:hover {
-  background-color: #e55a50; /* Darker coral on hover */
-  border-color: #e55a50;
+  background-color: var(--primary-dark);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
 }
+
+.contact-form button:active {
+  transform: translateY(0);
+}
+
+/* Estilos adicionais para melhorar a responsividade */
+@media (max-width: 768px) {
+  #contact {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}
+
+/* Estilos para animação de entrada dos campos */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }

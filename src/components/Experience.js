@@ -1,60 +1,68 @@
 import React from 'react';
-import { SiNextdotjs, SiPrisma, SiReact, SiRedux, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import './Experience.css';
 
 const experiences = [
   {
-    company: 'Workwolf',
-    title: 'Développeur Front-End',
-    period: 'Oct 2022 - Présent (5 mois)',
-    description: 'Développement et maintenance d\'interfaces utilisant React, Next, Tailwind, Typescript et Figma. Pour la planification des sprints, l\'utilisation de Jira.',
-    technologies: [SiNextdotjs, SiTailwindcss, SiTypescript, SiPrisma, SiReact, SiRedux],
-    logo: 'https://via.placeholder.com/50.png?text=W',
+    company: 'Groupe Conseil Manso & Baehr',
+    title: 'Designer Web (UI/UX)',
+    period: '2019-2022',
+    location: 'Longueuil, Québec',
+    tasks: [
+      'Transposition de maquettes (via Figma et Photoshop) en format HTML et CSS pour des sites web responsifs et esthétiques.',
+      'Développement de contenus visuels attractifs pour diverses plateformes sociales, en respectant les lignes directrices de l\'entreprise.',
+      'Mise en page, illustration et publication d\'articles de blogue, de documents variés et de pages d\'atterrissage en utilisant WordPress (DIVI, Fluent-CRM, WooCommerce).',
+      'Mise à jour et optimisation continue des cours en ligne via l’extension LearnDash, assurant une expérience utilisateur fluide.',
+    ],
+    logo: '/logo_spn.jpg',
   },
   {
-    company: 'Cidade Alta',
-    title: 'Développeur Front-End',
-    period: 'May 2022 - Présent (1 an et 10 mois)',
-    description: 'Développement et maintenance d\'interfaces utilisant React, Vite, Typescript, Redux, Styled Components et Figma. Pour la planification des sprints, l\'utilisation de Azure DevOps.',
+    company: 'École Sacré-Cœur de Marie',
+    title: 'Designer Web (UI/UX)',
+    period: '2012-2018',
+    location: 'Brésil',
     tasks: [
-      'Développement et maintenance d\'interfaces',
-      'Panneau administratif',
-      'Système d\'inventaire',
-      'Visualisation 3D'
+      'Créer des concepts pour différents médias imprimés et numériques (statiques et animés).',
+      'Participer aux décisions marketing pour les différents projets.',
+      'Retoucher les photos et produire le montage de vidéos.',
+      'Maintenir et améliorer les sites existants.',
     ],
-    technologies: [SiNextdotjs, SiTailwindcss, SiTypescript, SiPrisma, SiReact, SiRedux],
-    logo: 'https://via.placeholder.com/50.png?text=CA',
-  }
+    logo: '/logo_scm.jpg',
+  },
+  {
+    company: 'OI Telecom',
+    title: 'Designer Web (UI/UX)',
+    period: '2008-2012',
+    location: 'Brésil',
+    tasks: [
+      'Concevoir et prototyper des pages Web et des systèmes internes.',
+      'Découper les maquettes graphiques et intégrer HTML / CSS.',
+      'Maintenir et améliorer les sites existants.',
+    ],
+    logo: '/logo_oi.jpg',
+  },
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="text-white p-5">
+    <section id="experience" className="experience-section">
       <div className="container">
         <h2 className="section-title">Expérience Professionnelle</h2>
         <div className="timeline">
           {experiences.map((experience, index) => (
             <div key={index} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
               <div className="timeline-icon">
-                <img src={experience.logo} alt={`${experience.company} logo`} />
+                <img src={experience.logo} alt={`${experience.company} logo`} className="company-logo" />
               </div>
               <div className="timeline-content">
-                <h3>{experience.title}</h3>
-                <h4>@ {experience.company}</h4>
-                <span className="period">{experience.period}</span>
-                <p>{experience.description}</p>
-                {experience.tasks && (
-                  <ul className="tasks">
-                    {experience.tasks.map((task, i) => (
-                      <li key={i}>{task}</li>
-                    ))}
-                  </ul>
-                )}
-                <div className="technologies">
-                  {experience.technologies.map((Icon, i) => (
-                    <Icon key={i} size={30} className="technology-icon" />
+                <h3 className="job-title">{experience.title}</h3>
+                <h4 className="company-name">
+                  @ {experience.company} — {experience.period} <span className="location">({experience.location})</span>
+                </h4>
+                <ul className="tasks-list">
+                  {experience.tasks.map((task, i) => (
+                    <li key={i}>{task}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           ))}
