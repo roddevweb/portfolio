@@ -5,7 +5,7 @@ import { SiFigma, SiAdobephotoshop, SiAdobexd, SiAdobeaftereffects, SiAdobepremi
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Registrar o plugin ScrollTrigger
+// Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
@@ -13,7 +13,7 @@ const Skills = () => {
   const progressRefs = useRef([]);
 
   useEffect(() => {
-    // Animar as barras de progresso quando a seção estiver visível
+    // Animer les barres de progression lorsque la section est visible
     const progressBars = progressRefs.current;
     
     progressBars.forEach((bar) => {
@@ -35,7 +35,7 @@ const Skills = () => {
       );
     });
     
-    // Animar os cards quando a seção estiver visível
+    // Animer les cartes lorsque la section est visible
     gsap.fromTo(
       '.skill-card',
       { y: 50, opacity: 0 },
@@ -61,7 +61,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section" ref={sectionRef}>
       <div className="container">
-        <h2>My Skills</h2>
+        <h2>Mes compétences</h2>
         <div className="row">
           <div className="col-md-6 col-lg-3">
             <div className="card skill-card">
@@ -144,7 +144,7 @@ const Skills = () => {
           <div className="col-md-6 col-lg-3">
             <div className="card skill-card">
               <div className="card-body">
-                <h5 className="card-title">CMS & Tools</h5>
+                <h5 className="card-title">CMS & Outils</h5>
                 <div className="skill-icons">
                   <div className="icon-wrapper" data-tooltip="WordPress">
                     <FaWordpress className="fa" />

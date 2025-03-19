@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Introduction.css';
 
-// Registrar o plugin ScrollTrigger
+// Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Introduction = () => {
@@ -22,7 +22,7 @@ const Introduction = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Timeline para animações de entrada
+    // Timeline pour les animations d'entrée
     const tl = gsap.timeline();
     
     tl.fromTo(headingRef.current, 
@@ -65,17 +65,17 @@ const Introduction = () => {
       "-=0.5"
     );
 
-    // Efeito de parallax no movimento do mouse
+    // Effet de parallaxe avec le mouvement de la souris
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
       
-      // Atualizar posição para efeitos
+      // Mettre à jour la position pour les effets
       setMousePosition({ 
         x: clientX, 
         y: clientY 
       });
       
-      // Efeito sutil na imagem
+      // Effet subtil sur l'image
       gsap.to(imageRef.current, {
         x: (clientX / window.innerWidth - 0.5) * 10,
         y: (clientY / window.innerHeight - 0.5) * 10,
@@ -84,8 +84,8 @@ const Introduction = () => {
       });
     };
 
-    // Remover o ScrollTrigger que estava causando problemas
-    // Agora o hero permanecerá visível ao rolar a página
+    // Supprimer le ScrollTrigger qui causait des problèmes
+    // Maintenant le hero restera visible en défilant la page
 
     window.addEventListener('mousemove', handleMouseMove);
     
@@ -100,18 +100,19 @@ const Introduction = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-text">
-            <span className="hero-greeting" ref={headingRef}>Hello, I'm</span>
+            <span className="hero-greeting" ref={headingRef}>Bonjour, je suis</span>
             <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Coelho</span></h1>
-            <h2 className="hero-role" ref={roleRef}>Full Stack Developer & UI/UX Designer</h2>
+            <h2 className="hero-role" ref={roleRef}>Stratégiste UX/UI & Développeur Front-End</h2>
             
             <p className="hero-description" ref={descriptionRef}>
-              I transform ideas into exceptional digital experiences.
-              Creating intuitive interfaces and robust technical solutions.
+              J'allie design thinking et expertise technique pour créer des expériences numériques percutantes.
+              Je comprends les processus de bout en bout, les exigences d'affaires et les stratégies marketing
+              pour livrer des solutions qui génèrent de la valeur pour l'entreprise.
             </p>
             
             <div className="hero-cta" ref={ctaRef}>
               <a href="/cv.pdf" className="btn-cta">
-                <span>Download CV</span>
+                <span>Télécharger CV</span>
                 <span className="btn-arrow">→</span>
               </a>
               
@@ -159,7 +160,7 @@ const Introduction = () => {
         </div>
         
         <div className="scroll-indicator" ref={scrollIndicatorRef}>
-          <span>Discover my projects</span>
+          <span>Découvrez mes projets</span>
           <FaArrowDown className="scroll-arrow" />
         </div>
       </div>

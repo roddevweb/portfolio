@@ -40,21 +40,24 @@ const Header = ({ onLanguageChange }) => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container d-flex justify-content-between align-items-center py-3">
         <div className="logo">
-          <img src="/logo-rcoelhoweb-1.png" alt="Rodrigo Coelho Logo" />
+          <img src="/logo-rcoelhoweb-1.png" alt="Logo Rodrigo Coelho" />
         </div>
         <nav ref={menuRef} className={`nav ${menuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="#home" className="nav-link">Home</a>
+              <a href="#home" className="nav-link">Accueil</a>
             </li>
             <li className="nav-item">
-              <a href="#projects" className="nav-link">Projects</a>
+              <a href="#projects" className="nav-link">Projets</a>
             </li>
             <li className="nav-item">
-              <a href="#skills" className="nav-link">Skills</a>
+              <a href="#skills" className="nav-link">Compétences</a>
             </li>
             <li className="nav-item">
-              <a href="#experience" className="nav-link">Experience</a>
+              <a href="#experience" className="nav-link">Expérience</a>
+            </li>
+            <li className="nav-item">
+              <a href="#education" className="nav-link">Formation</a>
             </li>
             <li className="nav-item">
               <a href="#contact" className="nav-link">Contact</a>

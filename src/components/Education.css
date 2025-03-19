@@ -1,0 +1,183 @@
+/* Education.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+.education-section {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+  font-family: 'Poppins', 'Manrope', sans-serif;
+}
+
+.education-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #2D3748;
+  font-weight: 600;
+  position: relative;
+}
+
+.education-section .section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #FF6B6B;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.education-section .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.education-section .timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #FF6B6B;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.education-section .timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.education-section .left {
+  left: 0;
+}
+
+.education-section .right {
+  left: 50%;
+}
+
+.education-section .timeline-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: -30px;
+  background-color: white;
+  border-radius: 50%;
+  top: 15px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  border: 3px solid #FF6B6B;
+  overflow: hidden;
+}
+
+.education-section .right .timeline-icon {
+  left: -30px;
+}
+
+.education-section .school-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.education-section .timeline-content {
+  padding: 20px 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.education-section .timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.education-section .timeline-content::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  top: 30px;
+  background: white;
+  transform: rotate(45deg);
+}
+
+.education-section .right .timeline-content::after {
+  left: -10px;
+  right: auto;
+}
+
+.education-section .degree-title {
+  font-size: 1.3rem;
+  color: #FF6B6B;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.education-section .program-name {
+  font-size: 1.1rem;
+  color: #2D3748;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.education-section .school-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+.education-section .school-name {
+  font-weight: 500;
+}
+
+.education-section .period {
+  margin-top: 5px;
+}
+
+.education-section .location {
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .education-section .timeline::after {
+    left: 31px;
+  }
+
+  .education-section .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    left: 0;
+  }
+
+  .education-section .timeline-icon {
+    left: 0;
+    right: auto;
+  }
+
+  .education-section .right .timeline-icon {
+    left: 0;
+  }
+
+  .education-section .timeline-content::after {
+    left: -10px;
+    right: auto;
+  }
+} 

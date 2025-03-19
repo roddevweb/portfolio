@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Projects.css';
 
-// Registrar o plugin ScrollTrigger
+// Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 Modal.setAppElement('#root');
@@ -13,7 +13,7 @@ Modal.setAppElement('#root');
 const allProjects = [
   {
     title: 'PlayTasks',
-    description: 'A modern gaming platform with a focus on user experience and intuitive interface design.',
+    description: 'Une plateforme de jeu moderne mettant l\'accent sur l\'expérience utilisateur et une interface intuitive.',
     image: 'https://via.placeholder.com/600x400.png?text=PlayTasks',
     technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
     category: 'UX/UI',
@@ -21,7 +21,7 @@ const allProjects = [
   },
   {
     title: 'IntegraQC',
-    description: 'A comprehensive quality control system with an elegant and user-friendly interface.',
+    description: 'Un système complet de contrôle qualité avec une interface élégante et conviviale.',
     image: 'https://via.placeholder.com/600x400.png?text=IntegraQC',
     technologies: [SiFigma, SiAdobexd, SiReact, SiRedux],
     category: 'UX/UI',
@@ -29,7 +29,7 @@ const allProjects = [
   },
   {
     title: 'SomaFlix',
-    description: 'A streaming platform with a focus on educational content and a clean, modern design.',
+    description: 'Une plateforme de diffusion en continu axée sur le contenu éducatif avec un design épuré et moderne.',
     image: 'https://via.placeholder.com/600x400.png?text=SomaFlix',
     technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
     category: 'UX/UI',
@@ -37,7 +37,7 @@ const allProjects = [
   },
   {
     title: 'Start Projecting Now',
-    description: 'A project management tool designed to help teams collaborate effectively with an intuitive interface.',
+    description: 'Un outil de gestion de projet conçu pour aider les équipes à collaborer efficacement avec une interface intuitive.',
     image: 'https://via.placeholder.com/600x400.png?text=Start+Projecting+Now',
     technologies: [SiFigma, SiReact, SiTypescript, SiRedux],
     category: 'UX/UI',
@@ -45,18 +45,18 @@ const allProjects = [
   }
 ];
 
-const categories = ['All', 'UX/UI', 'Apps', 'Logo'];
+const categories = ['Tous', 'UX/UI', 'Applications', 'Logo'];
 
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const sectionRef = useRef(null);
   const projectsRef = useRef([]);
 
-  const filteredProjects = selectedCategory === 'All'
+  const filteredProjects = selectedCategory === 'Tous'
     ? allProjects
-    : allProjects.filter(project => project.category === selectedCategory);
+    : allProjects.filter(project => project.category === (selectedCategory === 'Applications' ? 'Apps' : selectedCategory));
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -69,7 +69,7 @@ const Projects = () => {
   };
   
   useEffect(() => {
-    // Animar o título da seção
+    // Animer le titre de la section
     gsap.fromTo(
       '.section-title',
       { y: 30, opacity: 0 },
@@ -86,7 +86,7 @@ const Projects = () => {
       }
     );
     
-    // Animar os botões de categoria
+    // Animer les boutons de catégorie
     gsap.fromTo(
       '.category-btn',
       { y: 20, opacity: 0 },
@@ -104,7 +104,7 @@ const Projects = () => {
       }
     );
     
-    // Animar os cards de projetos
+    // Animer les cartes de projets
     const animateProjects = () => {
       gsap.fromTo(
         projectsRef.current,
@@ -126,7 +126,7 @@ const Projects = () => {
     
     animateProjects();
     
-    // Reanimação quando a categoria muda
+    // Réanimation lorsque la catégorie change
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -135,7 +135,7 @@ const Projects = () => {
   return (
     <section id="projects" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title">Projets en vedette</h2>
         <div className="categories">
           {categories.map((category, index) => (
             <button
@@ -164,7 +164,7 @@ const Projects = () => {
                       <Icon key={i} size={24} className="technology-icon" />
                     ))}
                   </div>
-                  <button className="btn btn-info">View Project</button>
+                  <button className="btn btn-info">Voir le projet</button>
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@ const Projects = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Project Image"
+        contentLabel="Image du projet"
         className="Modal"
         overlayClassName="Overlay"
       >
@@ -191,7 +191,7 @@ const Projects = () => {
                 ))}
               </div>
               <button className="btn btn-info" onClick={() => window.open(selectedProject.link, '_blank')}>
-                Visit Project
+                Visiter le projet
               </button>
             </div>
           </div>

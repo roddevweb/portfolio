@@ -4,7 +4,7 @@ import './ContactForm.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Registrar o plugin ScrollTrigger
+// Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
@@ -16,12 +16,12 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', { name, email, message });
-    // Aqui você pode adicionar a lógica para enviar o formulário
+    console.log('Formulaire soumis:', { name, email, message });
+    // Ici vous pouvez ajouter la logique pour envoyer le formulaire
   }
   
   useEffect(() => {
-    // Animar o título da seção
+    // Animer le titre de la section
     gsap.fromTo(
       '.section-title',
       { y: 30, opacity: 0 },
@@ -38,7 +38,7 @@ const Contact = () => {
       }
     );
     
-    // Animar o formulário
+    // Animer le formulaire
     gsap.fromTo(
       formRef.current,
       { y: 50, opacity: 0 },
@@ -63,33 +63,33 @@ const Contact = () => {
   return (
     <section id="contact" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Let's Work Together</h2>
+        <h2 className="section-title">Travaillons ensemble</h2>
         <form 
           onSubmit={handleSubmit} 
           className="contact-form"
           ref={formRef}
         >
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Nom</label>
             <input 
               type="text" 
               id="name" 
               className="form-control" 
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
+              placeholder="Votre nom"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Courriel</label>
             <input 
               type="email" 
               id="email" 
               className="form-control" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
+              placeholder="Votre courriel"
               required
             />
           </div>
@@ -100,7 +100,7 @@ const Contact = () => {
               className="form-control" 
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Your message"
+              placeholder="Votre message"
               rows="5"
               required
             />
@@ -109,7 +109,7 @@ const Contact = () => {
             type="submit" 
             className="btn"
           >
-            Send Message
+            Envoyer le message
           </button>
         </form>
       </div>

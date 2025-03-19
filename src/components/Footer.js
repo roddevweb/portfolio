@@ -8,10 +8,11 @@ const Footer = () => {
       <div className="container">
         <div className="footer-links">
           <ul className="list-unstyled">
-            <li><a href="#home" className="text-white">Home</a></li>
-            <li><a href="#projects" className="text-white">Projects</a></li>
-            <li><a href="#skills" className="text-white">Skills</a></li>
-            <li><a href="#experience" className="text-white">Experience</a></li>
+            <li><a href="#home" className="text-white">Accueil</a></li>
+            <li><a href="#projects" className="text-white">Projets</a></li>
+            <li><a href="#skills" className="text-white">Compétences</a></li>
+            <li><a href="#experience" className="text-white">Expérience</a></li>
+            <li><a href="#education" className="text-white">Formation</a></li>
             <li><a href="#contact" className="text-white">Contact</a></li>
           </ul>
           <div className="social-icons">

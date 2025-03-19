@@ -11,7 +11,7 @@ const experiences = [
       'Transposition de maquettes (via Figma et Photoshop) en format HTML et CSS pour des sites web responsifs et esthétiques.',
       'Développement de contenus visuels attractifs pour diverses plateformes sociales, en respectant les lignes directrices de l\'entreprise.',
       'Mise en page, illustration et publication d\'articles de blogue, de documents variés et de pages d\'atterrissage en utilisant WordPress (DIVI, Fluent-CRM, WooCommerce).',
-      'Mise à jour et optimisation continue des cours en ligne via l’extension LearnDash, assurant une expérience utilisateur fluide.',
+      'Mise à jour et optimisation continue des cours en ligne via l\'extension LearnDash, assurant une expérience utilisateur fluide.',
     ],
     logo: '/logo_spn.jpg',
   },
@@ -46,12 +46,12 @@ const Experience = () => {
   return (
     <section id="experience" className="experience-section">
       <div className="container">
-        <h2 className="section-title">Expérience Professionnelle</h2>
+        <h2 className="section-title">Expérience professionnelle</h2>
         <div className="timeline">
           {experiences.map((experience, index) => (
             <div key={index} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
               <div className="timeline-icon">
-                <img src={experience.logo} alt={`${experience.company} logo`} className="company-logo" />
+                <img src={experience.logo} alt={`Logo ${experience.company}`} className="company-logo" />
               </div>
               <div className="timeline-content">
                 <h3 className="job-title">{experience.title}</h3>
