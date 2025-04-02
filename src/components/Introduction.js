@@ -7,7 +7,24 @@ import './Introduction.css';
 // Enregistrer le plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-const Introduction = () => {
+const content = {
+  fr: {
+    greeting: "Bonjour, je suis",
+    role: "Stratégiste UX/UI & Développeur Front-End",
+    description: "J'allie design thinking et expertise technique pour créer des expériences numériques percutantes. Je comprends les processus de bout en bout, les exigences d'affaires et les stratégies marketing pour livrer des solutions qui génèrent de la valeur pour l'entreprise.",
+    downloadCV: "Télécharger CV",
+    discover: "Découvrez mes projets"
+  },
+  en: {
+    greeting: "Hello, I am",
+    role: "UX/UI Strategist & Front-End Developer",
+    description: "I combine design thinking and technical expertise to create impactful digital experiences. I understand end-to-end processes, business requirements, and marketing strategies to deliver solutions that generate value for the company.",
+    downloadCV: "Download CV",
+    discover: "Discover my projects"
+  }
+};
+
+const Introduction = ({ language = 'fr' }) => {
   const heroRef = useRef(null);
   const headingRef = useRef(null);
   const nameRef = useRef(null);
@@ -20,6 +37,7 @@ const Introduction = () => {
   
   // eslint-disable-next-line no-unused-vars
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const currentContent = content[language] || content.fr;
 
   useEffect(() => {
     // Timeline pour les animations d'entrée
@@ -100,19 +118,17 @@ const Introduction = () => {
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-text">
-            <span className="hero-greeting" ref={headingRef}>Bonjour, je suis</span>
-            <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Coelho</span></h1>
-            <h2 className="hero-role" ref={roleRef}>Stratégiste UX/UI & Développeur Front-End</h2>
+            <span className="hero-greeting" ref={headingRef}>{currentContent.greeting}</span>
+            <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Silva</span></h1>
+            <h2 className="hero-role" ref={roleRef}>{currentContent.role}</h2>
             
             <p className="hero-description" ref={descriptionRef}>
-              J'allie design thinking et expertise technique pour créer des expériences numériques percutantes.
-              Je comprends les processus de bout en bout, les exigences d'affaires et les stratégies marketing
-              pour livrer des solutions qui génèrent de la valeur pour l'entreprise.
+              {currentContent.description}
             </p>
             
             <div className="hero-cta" ref={ctaRef}>
               <a href="/cv.pdf" className="btn-cta">
-                <span>Télécharger CV</span>
+                <span>{currentContent.downloadCV}</span>
                 <span className="btn-arrow">→</span>
               </a>
               
@@ -160,7 +176,7 @@ const Introduction = () => {
         </div>
         
         <div className="scroll-indicator" ref={scrollIndicatorRef}>
-          <span>Découvrez mes projets</span>
+          <span>{currentContent.discover}</span>
           <FaArrowDown className="scroll-arrow" />
         </div>
       </div>

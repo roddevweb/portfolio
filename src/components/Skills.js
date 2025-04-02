@@ -1,72 +1,42 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import './Skills.css';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaWordpress } from 'react-icons/fa';
 import { SiFigma, SiAdobephotoshop, SiAdobexd, SiAdobeaftereffects, SiAdobepremierepro, SiCsharp, SiMysql } from 'react-icons/si';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Enregistrer le plugin ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+const titles = {
+  fr: {
+    section: "Mes compétences",
+    categories: {
+      uxui: "UX / UI",
+      frontend: "Front-End",
+      backend: "Back-End",
+      cms: "CMS & Outils"
+    }
+  },
+  en: {
+    section: "My Skills",
+    categories: {
+      uxui: "UX / UI",
+      frontend: "Front-End",
+      backend: "Back-End",
+      cms: "CMS & Tools"
+    }
+  }
+};
 
-const Skills = () => {
+const Skills = ({ language = 'fr' }) => {
   const sectionRef = useRef(null);
-  const progressRefs = useRef([]);
-
-  useEffect(() => {
-    // Animer les barres de progression lorsque la section est visible
-    const progressBars = progressRefs.current;
-    
-    progressBars.forEach((bar) => {
-      const percentage = bar.getAttribute('data-percentage');
-      
-      gsap.fromTo(
-        bar,
-        { width: '0%' },
-        {
-          width: `${percentage}%`,
-          duration: 1.5,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          }
-        }
-      );
-    });
-    
-    // Animer les cartes lorsque la section est visible
-    gsap.fromTo(
-      '.skill-card',
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-    
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+  const currentTitles = titles[language] || titles.fr;
 
   return (
     <section id="skills" className="skills-section" ref={sectionRef}>
       <div className="container">
-        <h2>Mes compétences</h2>
+        <h2 className="section-title">{currentTitles.section}</h2>
         <div className="row">
-          <div className="col-md-6 col-lg-3">
+          <div className="col-md-6 col-lg-3 mb-4">
             <div className="card skill-card">
               <div className="card-body">
-                <h5 className="card-title">UX / UI</h5>
+                <h5 className="card-title">{currentTitles.categories.uxui}</h5>
                 <div className="skill-icons">
                   <div className="icon-wrapper" data-tooltip="Figma">
                     <SiFigma className="si" />
@@ -81,17 +51,16 @@ const Skills = () => {
                 <div className="skill-progress">
                   <div 
                     className="progress-bar" 
-                    data-percentage="90" 
-                    ref={el => progressRefs.current[0] = el}
+                    style={{ width: '90%' }}
                   ></div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-lg-3">
+          <div className="col-md-6 col-lg-3 mb-4">
             <div className="card skill-card">
               <div className="card-body">
-                <h5 className="card-title">Front-End</h5>
+                <h5 className="card-title">{currentTitles.categories.frontend}</h5>
                 <div className="skill-icons">
                   <div className="icon-wrapper" data-tooltip="HTML5">
                     <FaHtml5 className="fa" />
@@ -109,17 +78,16 @@ const Skills = () => {
                 <div className="skill-progress">
                   <div 
                     className="progress-bar" 
-                    data-percentage="95" 
-                    ref={el => progressRefs.current[1] = el}
+                    style={{ width: '95%' }}
                   ></div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-lg-3">
+          <div className="col-md-6 col-lg-3 mb-4">
             <div className="card skill-card">
               <div className="card-body">
-                <h5 className="card-title">Back-End</h5>
+                <h5 className="card-title">{currentTitles.categories.backend}</h5>
                 <div className="skill-icons">
                   <div className="icon-wrapper" data-tooltip="Node.js">
                     <FaNodeJs className="fa" />
@@ -134,17 +102,16 @@ const Skills = () => {
                 <div className="skill-progress">
                   <div 
                     className="progress-bar" 
-                    data-percentage="85" 
-                    ref={el => progressRefs.current[2] = el}
+                    style={{ width: '85%' }}
                   ></div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-lg-3">
+          <div className="col-md-6 col-lg-3 mb-4">
             <div className="card skill-card">
               <div className="card-body">
-                <h5 className="card-title">CMS & Outils</h5>
+                <h5 className="card-title">{currentTitles.categories.cms}</h5>
                 <div className="skill-icons">
                   <div className="icon-wrapper" data-tooltip="WordPress">
                     <FaWordpress className="fa" />
@@ -159,8 +126,7 @@ const Skills = () => {
                 <div className="skill-progress">
                   <div 
                     className="progress-bar" 
-                    data-percentage="80" 
-                    ref={el => progressRefs.current[3] = el}
+                    style={{ width: '80%' }}
                   ></div>
                 </div>
               </div>

@@ -1,11 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
+const navItems = {
+  fr: [
+    { href: '#home', text: 'Accueil' },
+    { href: '#projects', text: 'Projets' },
+    { href: '#skills', text: 'Compétences' },
+    { href: '#experience', text: 'Expérience' },
+    { href: '#education', text: 'Formation' },
+    { href: '#contact', text: 'Contact' }
+  ],
+  en: [
+    { href: '#home', text: 'Home' },
+    { href: '#projects', text: 'Projects' },
+    { href: '#skills', text: 'Skills' },
+    { href: '#experience', text: 'Experience' },
+    { href: '#education', text: 'Education' },
+    { href: '#contact', text: 'Contact' }
+  ]
+};
+
 const Header = ({ onLanguageChange }) => {
   const [language, setLanguage] = useState('fr');
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+  const currentNavItems = navItems[language] || navItems.fr;
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -40,28 +60,15 @@ const Header = ({ onLanguageChange }) => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container d-flex justify-content-between align-items-center py-3">
         <div className="logo">
-          <img src="/logo-rcoelhoweb-1.png" alt="Logo Rodrigo Coelho" />
+          <img src="/logo-rcoelhoweb-1.png" alt="Logo Rodrigo Silva" />
         </div>
         <nav ref={menuRef} className={`nav ${menuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
-            <li className="nav-item">
-              <a href="#home" className="nav-link">Accueil</a>
-            </li>
-            <li className="nav-item">
-              <a href="#projects" className="nav-link">Projets</a>
-            </li>
-            <li className="nav-item">
-              <a href="#skills" className="nav-link">Compétences</a>
-            </li>
-            <li className="nav-item">
-              <a href="#experience" className="nav-link">Expérience</a>
-            </li>
-            <li className="nav-item">
-              <a href="#education" className="nav-link">Formation</a>
-            </li>
-            <li className="nav-item">
-              <a href="#contact" className="nav-link">Contact</a>
-            </li>
+            {currentNavItems.map((item, index) => (
+              <li key={index} className="nav-item">
+                <a href={item.href} className="nav-link">{item.text}</a>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="language-selector">

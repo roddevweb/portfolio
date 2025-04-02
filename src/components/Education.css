@@ -38,12 +38,13 @@
   position: absolute;
   width: 4px;
   background-color: #FF6B6B;
-  top: 0;
-  bottom: 0;
+  top: 50px;
+  bottom: 50px;
   left: 50%;
   margin-left: -2px;
   border-radius: 10px;
   opacity: 0.7;
+  z-index: 1;
 }
 
 .education-section .timeline-item {
@@ -70,7 +71,7 @@
   background-color: white;
   border-radius: 50%;
   top: 15px;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,10 +155,16 @@
   font-style: italic;
 }
 
+.education-section .timeline-item .timeline-icon::before {
+  display: none;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .education-section .timeline::after {
     left: 31px;
+    top: 50px;
+    bottom: 50px;
   }
 
   .education-section .timeline-item {

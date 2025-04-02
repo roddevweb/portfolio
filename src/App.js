@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
 import Skills from './components/Skills';
@@ -10,17 +10,23 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer'; // Importando o Footer
 
 function App() {
+  const [language, setLanguage] = useState('fr');
+
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+  };
+
   return (
     <div className="App">
-      <Header />
-      <Introduction />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Education />
+      <Header onLanguageChange={handleLanguageChange} />
+      <Introduction language={language} />
+      <Skills language={language} />
+      <Projects language={language} />
+      <Experience language={language} />
+      <Education language={language} />
       {/* <Testimonials /> */} {/* Seção de testemunhos comentada - não será usada agora */}
-      <ContactForm />
-      <Footer /> {/* Inclusão do Footer */}
+      <ContactForm language={language} />
+      <Footer language={language} /> {/* Inclusão do Footer */}
     </div>
   );
 }

@@ -10,53 +10,110 @@ gsap.registerPlugin(ScrollTrigger);
 
 Modal.setAppElement('#root');
 
-const allProjects = [
-  {
-    title: 'PlayTasks',
-    description: 'Une plateforme de jeu moderne mettant l\'accent sur l\'expérience utilisateur et une interface intuitive.',
-    image: 'https://via.placeholder.com/600x400.png?text=PlayTasks',
-    technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
-    category: 'UX/UI',
-    link: 'https://example.com/playtasks'
-  },
-  {
-    title: 'IntegraQC',
-    description: 'Un système complet de contrôle qualité avec une interface élégante et conviviale.',
-    image: 'https://via.placeholder.com/600x400.png?text=IntegraQC',
-    technologies: [SiFigma, SiAdobexd, SiReact, SiRedux],
-    category: 'UX/UI',
-    link: 'https://example.com/integraqc'
-  },
-  {
-    title: 'SomaFlix',
-    description: 'Une plateforme de diffusion en continu axée sur le contenu éducatif avec un design épuré et moderne.',
-    image: 'https://via.placeholder.com/600x400.png?text=SomaFlix',
-    technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
-    category: 'UX/UI',
-    link: 'https://example.com/somaflix'
-  },
-  {
-    title: 'Start Projecting Now',
-    description: 'Un outil de gestion de projet conçu pour aider les équipes à collaborer efficacement avec une interface intuitive.',
-    image: 'https://via.placeholder.com/600x400.png?text=Start+Projecting+Now',
-    technologies: [SiFigma, SiReact, SiTypescript, SiRedux],
-    category: 'UX/UI',
-    link: 'https://example.com/startprojectingnow'
-  }
-];
+// Comentário - Array de projetos
+const allProjects = {
+  fr: [
+    // Projetos comentados
+    {
+      title: 'PlayTasks',
+      description: 'Une plateforme de jeu moderne mettant l\'accent sur l\'expérience utilisateur et une interface intuitive.',
+      image: 'https://via.placeholder.com/600x400.png?text=PlayTasks',
+      technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
+      category: 'UX/UI',
+      link: 'https://example.com/playtasks'
+    },
+    {
+      title: 'IntegraQC',
+      description: 'Un système complet de contrôle qualité avec une interface élégante et conviviale.',
+      image: 'https://via.placeholder.com/600x400.png?text=IntegraQC',
+      technologies: [SiFigma, SiAdobexd, SiReact, SiRedux],
+      category: 'UX/UI',
+      link: 'https://example.com/integraqc'
+    },
+    {
+      title: 'SomaFlix',
+      description: 'Une plateforme de diffusion en continu axée sur le contenu éducatif avec un design épuré et moderne.',
+      image: 'https://via.placeholder.com/600x400.png?text=SomaFlix',
+      technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
+      category: 'UX/UI',
+      link: 'https://example.com/somaflix'
+    },
+    {
+      title: 'Start Projecting Now',
+      description: 'Un outil de gestion de projet conçu pour aider les équipes à collaborer efficacement avec une interface intuitive.',
+      image: 'https://via.placeholder.com/600x400.png?text=Start+Projecting+Now',
+      technologies: [SiFigma, SiReact, SiTypescript, SiRedux],
+      category: 'UX/UI',
+      link: 'https://example.com/startprojectingnow'
+    }
+  ],
+  en: [
+    // Projects (commented out)
+    {
+      title: 'PlayTasks',
+      description: 'A modern gaming platform focused on user experience and intuitive interface.',
+      image: 'https://via.placeholder.com/600x400.png?text=PlayTasks',
+      technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
+      category: 'UX/UI',
+      link: 'https://example.com/playtasks'
+    },
+    {
+      title: 'IntegraQC',
+      description: 'A complete quality control system with an elegant and user-friendly interface.',
+      image: 'https://via.placeholder.com/600x400.png?text=IntegraQC',
+      technologies: [SiFigma, SiAdobexd, SiReact, SiRedux],
+      category: 'UX/UI',
+      link: 'https://example.com/integraqc'
+    },
+    {
+      title: 'SomaFlix',
+      description: 'A streaming platform focused on educational content with a clean and modern design.',
+      image: 'https://via.placeholder.com/600x400.png?text=SomaFlix',
+      technologies: [SiFigma, SiReact, SiNextdotjs, SiTailwindcss],
+      category: 'UX/UI',
+      link: 'https://example.com/somaflix'
+    },
+    {
+      title: 'Start Projecting Now',
+      description: 'A project management tool designed to help teams collaborate effectively with an intuitive interface.',
+      image: 'https://via.placeholder.com/600x400.png?text=Start+Projecting+Now',
+      technologies: [SiFigma, SiReact, SiTypescript, SiRedux],
+      category: 'UX/UI',
+      link: 'https://example.com/startprojectingnow'
+    }
+  ]
+};
 
-const categories = ['Tous', 'UX/UI', 'Applications', 'Logo'];
+const categories = {
+  fr: ['Tous', 'UX/UI', 'Applications', 'Logo'],
+  en: ['All', 'UX/UI', 'Applications', 'Logo']
+};
 
-const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
+const titles = {
+  fr: "Projets en vedette",
+  en: "Featured Projects"
+};
+
+const developmentMessage = {
+  fr: "En développement",
+  en: "Under development"
+};
+
+const Projects = ({ language = 'fr' }) => {
+  const currentCategories = categories[language] || categories.fr;
+  const defaultCategory = currentCategories[0];
+  const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const sectionRef = useRef(null);
   const projectsRef = useRef([]);
+  const sectionTitle = titles[language] || titles.fr;
+  const message = developmentMessage[language] || developmentMessage.fr;
 
-  const filteredProjects = selectedCategory === 'Tous'
-    ? allProjects
-    : allProjects.filter(project => project.category === (selectedCategory === 'Applications' ? 'Apps' : selectedCategory));
+  /*
+  const filteredProjects = selectedCategory === defaultCategory
+    ? allProjects[language]
+    : allProjects[language].filter(project => project.category === (selectedCategory === currentCategories[2] ? 'Apps' : selectedCategory));
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -67,9 +124,13 @@ const Projects = () => {
     setModalIsOpen(false);
     setSelectedProject(null);
   };
+  */
   
   useEffect(() => {
-    // Animer le titre de la section
+    // Reset selected category when language changes
+    setSelectedCategory(currentCategories[0]);
+    
+    // Animar o título da section
     gsap.fromTo(
       '.section-title',
       { y: 30, opacity: 0 },
@@ -86,7 +147,7 @@ const Projects = () => {
       }
     );
     
-    // Animer les boutons de catégorie
+    // Animar os botões de categoria
     gsap.fromTo(
       '.category-btn',
       { y: 20, opacity: 0 },
@@ -104,7 +165,8 @@ const Projects = () => {
       }
     );
     
-    // Animer les cartes de projets
+    /*
+    // Animar as cartas de projetos
     const animateProjects = () => {
       gsap.fromTo(
         projectsRef.current,
@@ -125,19 +187,20 @@ const Projects = () => {
     };
     
     animateProjects();
+    */
     
     // Réanimation lorsque la catégorie change
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [selectedCategory]);
+  }, [selectedCategory, currentCategories, language]);
 
   return (
     <section id="projects" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">Projets en vedette</h2>
+        <h2 className="section-title">{sectionTitle}</h2>
         <div className="categories">
-          {categories.map((category, index) => (
+          {currentCategories.map((category, index) => (
             <button
               key={index}
               className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
@@ -147,6 +210,14 @@ const Projects = () => {
             </button>
           ))}
         </div>
+        
+        <div className="row">
+          <div className="col-12 text-center my-5">
+            <h3>{message}</h3>
+          </div>
+        </div>
+        
+        {/* Conteúdo da seção de projetos comentado
         <div className="row">
           {filteredProjects.map((project, index) => (
             <div key={index} className="col-md-6 col-lg-4 mb-4">
@@ -170,8 +241,10 @@ const Projects = () => {
             </div>
           ))}
         </div>
+        */}
       </div>
 
+      {/* Modal comentado
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -197,6 +270,7 @@ const Projects = () => {
           </div>
         )}
       </Modal>
+      */}
     </section>
   );
 };

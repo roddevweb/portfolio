@@ -2,18 +2,46 @@ import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp, FaArrowUp } from 'react-icons/fa';
 import './Footer.css';
 
-const Footer = () => {
+const translations = {
+  fr: {
+    nav: [
+      { href: '#home', text: 'Accueil' },
+      { href: '#projects', text: 'Projets' },
+      { href: '#skills', text: 'Compétences' },
+      { href: '#experience', text: 'Expérience' },
+      { href: '#education', text: 'Formation' },
+      { href: '#contact', text: 'Contact' }
+    ],
+    copyright: '2024 Rodrigo Silva. Tous droits réservés.',
+    legal: 'Mentions légales'
+  },
+  en: {
+    nav: [
+      { href: '#home', text: 'Home' },
+      { href: '#projects', text: 'Projects' },
+      { href: '#skills', text: 'Skills' },
+      { href: '#experience', text: 'Experience' },
+      { href: '#education', text: 'Education' },
+      { href: '#contact', text: 'Contact' }
+    ],
+    copyright: '2024 Rodrigo Silva. All rights reserved.',
+    legal: 'Legal Notice'
+  }
+};
+
+const Footer = ({ language = 'fr' }) => {
+  const text = translations[language] || translations.fr;
+  
   return (
     <footer id="footer" className="bg-dark text-white p-5">
       <div className="container">
         <div className="footer-links">
           <ul className="list-unstyled">
-            <li><a href="#home" className="text-white">Accueil</a></li>
-            <li><a href="#projects" className="text-white">Projets</a></li>
-            <li><a href="#skills" className="text-white">Compétences</a></li>
-            <li><a href="#experience" className="text-white">Expérience</a></li>
-            <li><a href="#education" className="text-white">Formation</a></li>
-            <li><a href="#contact" className="text-white">Contact</a></li>
+            {text.nav.map((item, index) => (
+              <li key={index}>
+                <a href={item.href} className="text-white">{item.text}</a>
+              </li>
+            ))}
           </ul>
           <div className="social-icons">
             <a href="https://github.com/roddevweb" target="_blank" rel="noopener noreferrer" className="text-white"><FaGithub /></a>
@@ -22,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 Rodrigo Coelho. Tous droits réservés. <a href="#">Mentions légales</a></p>
+          <p>&copy; {text.copyright} <a href="#">{text.legal}</a></p>
         </div>
       </div>
       <div className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
