@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 10px 0;
+  padding: 6px 0;
   transition: background 0.3s, box-shadow 0.3s;
 }
 
@@ -17,9 +17,9 @@
 }
 
 .logo img {
-  width: 77px;
-  height: auto;
-  max-height: 58px;
+  width: auto;
+  height: 90px;
+  max-width: none;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -175,7 +175,7 @@
 
   .logo img {
     width: auto;
-    height: 48px;
-    max-width: 65px;
+    height: 70px;
+    max-width: none;
   }
 }

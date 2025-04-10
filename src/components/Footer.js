@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp, FaArrowUp } from 'react-icons/fa';
 import './Footer.css';
 
 const translations = {
@@ -48,9 +48,6 @@ const Footer = ({ language = 'fr' }) => {
             <a href="https://linkedin.com/in/roddevweb" target="_blank" rel="noopener noreferrer" className="text-white"><FaLinkedin /></a>
             <a href="https://wa.me/4384090178" target="_blank" rel="noopener noreferrer" className="text-white"><FaWhatsapp /></a>
           </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; {text.copyright} <a href="#">{text.legal}</a></p>
         </div>
       </div>
       <div className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

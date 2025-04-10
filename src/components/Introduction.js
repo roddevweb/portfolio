@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   fr: {
     greeting: "Bonjour, je suis",
-    role: "Stratégiste UX/UI & Développeur Front-End",
+    role: "UX/UI & Développeur Front-End",
     description: "J'allie design thinking et expertise technique pour créer des expériences numériques percutantes. Je comprends les processus de bout en bout, les exigences d'affaires et les stratégies marketing pour livrer des solutions qui génèrent de la valeur pour l'entreprise.",
     downloadCV: "Télécharger CV",
     discover: "Découvrez mes projets"
   },
   en: {
     greeting: "Hello, I am",
-    role: "UX/UI Strategist & Front-End Developer",
+    role: "UX/UI & Front-End Developer",
     description: "I combine design thinking and technical expertise to create impactful digital experiences. I understand end-to-end processes, business requirements, and marketing strategies to deliver solutions that generate value for the company.",
     downloadCV: "Download CV",
     discover: "Discover my projects"
@@ -127,7 +127,7 @@ const Introduction = ({ language = 'fr' }) => {
             </p>
             
             <div className="hero-cta" ref={ctaRef}>
-              <a href="/cv.pdf" className="btn-cta">
+              <a href="/cv/cv-rodrigo-silva-dev-web.pdf" className="btn-cta" target="_blank" rel="noopener noreferrer">
                 <span>{currentContent.downloadCV}</span>
                 <span className="btn-arrow">→</span>
               </a>

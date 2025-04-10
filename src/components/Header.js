@@ -60,7 +60,7 @@ const Header = ({ onLanguageChange }) => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container d-flex justify-content-between align-items-center py-3">
         <div className="logo">
-          <img src="/logo-rcoelhoweb-1.png" alt="Logo Rodrigo Silva" />
+          <img src="/logo-rod-silva.png" alt="Logo Rodrigo Silva" />
         </div>
         <nav ref={menuRef} className={`nav ${menuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">

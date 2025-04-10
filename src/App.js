@@ -20,8 +20,8 @@ function App() {
     <div className="App">
       <Header onLanguageChange={handleLanguageChange} />
       <Introduction language={language} />
-      <Skills language={language} />
       <Projects language={language} />
+      <Skills language={language} />
       <Experience language={language} />
       <Education language={language} />
       {/* <Testimonials /> */} {/* Seção de testemunhos comentada - não será usada agora */}
