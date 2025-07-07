@@ -31,7 +31,7 @@ const allProjects = {
       image: require('../works/app-play-tasks.jpg'),
       technologies: [SiFigma, {component: FaReact, isNative: true}, SiSupabase],
       category: 'UX/UI',
-      link: 'https://example.com/playtasks'
+      link: 'https://play.google.com/store/apps/details?id=com.playstaks'
     },
     // SomaFlix (en troisième position)
     {
@@ -120,7 +120,7 @@ const allProjects = {
       image: require('../works/app-play-tasks.jpg'),
       technologies: [SiFigma, {component: FaReact, isNative: true}, SiSupabase],
       category: 'UX/UI',
-      link: 'https://example.com/playtasks'
+      link: 'https://play.google.com/store/apps/details?id=com.playstaks'
     },
     // SomaFlix (en troisième position)
     {
@@ -455,6 +455,11 @@ const Projects = ({ language = 'fr' }) => {
                 {selectedProject.github && (
                   <button className="btn btn-outline-secondary me-2" onClick={() => window.open(selectedProject.github, '_blank')}>
                     <FaGithub className="me-2" /> {githubText}
+                  </button>
+                )}
+                {selectedProject.title === 'PlayTasks' && selectedProject.link && (
+                  <button className="btn btn-success me-2" onClick={() => window.open(selectedProject.link, '_blank')}>
+                    Play Store
                   </button>
                 )}
               </div>
