@@ -127,7 +127,7 @@ const Introduction = ({ language = 'fr' }) => {
             </p>
             
             <div className="hero-cta" ref={ctaRef}>
-              <a href="/cv/cv-rodrigo-silva-dev-web.pdf" className="btn-cta" target="_blank" rel="noopener noreferrer">
+              <a href="/cv/cv-rodrigo-jorge-dev-web.pdf" className="btn-cta" target="_blank" rel="noopener noreferrer">
                 <span>{currentContent.downloadCV}</span>
                 <span className="btn-arrow">→</span>
               </a>

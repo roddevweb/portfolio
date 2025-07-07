@@ -76,7 +76,7 @@ const Header = ({ onLanguageChange }) => {
             className={`btn btn-language ${language === 'fr' ? 'active' : ''}`}
             onClick={() => handleLanguageChange('fr')}
           >
-            <img src="/Flag_of_Quebec.svg" alt="FR" className="flag-icon" />
+            <img src="/flag_of_quebec.svg" alt="FR" className="flag-icon" />
           </button>
           <button 
             className={`btn btn-language ml-2 ${language === 'en' ? 'active' : ''}`}
