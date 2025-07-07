@@ -12,7 +12,7 @@ const translations = {
       { href: '#education', text: 'Formation' },
       { href: '#contact', text: 'Contact' }
     ],
-    copyright: '2024 Rodrigo Jorge. Tous droits réservés.',
+    copyright: '2024 Rodrigo Coelho. Tous droits réservés.',
     legal: 'Mentions légales'
   },
   en: {
@@ -24,7 +24,7 @@ const translations = {
       { href: '#education', text: 'Education' },
       { href: '#contact', text: 'Contact' }
     ],
-    copyright: '2024 Rodrigo Jorge. All rights reserved.',
+    copyright: '2024 Rodrigo Coelho. All rights reserved.',
     legal: 'Legal Notice'
   }
 };

@@ -119,7 +119,7 @@ const Introduction = ({ language = 'fr' }) => {
         <div className="hero-content">
           <div className="hero-text">
             <span className="hero-greeting" ref={headingRef}>{currentContent.greeting}</span>
-            <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Jorge</span></h1>
+            <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Coelho</span></h1>
             <h2 className="hero-role" ref={roleRef}>{currentContent.role}</h2>
             
             <p className="hero-description" ref={descriptionRef}>
@@ -127,7 +127,7 @@ const Introduction = ({ language = 'fr' }) => {
             </p>
             
             <div className="hero-cta" ref={ctaRef}>
-              <a href="/cv/cv-rodrigo-jorge-dev-web.pdf" className="btn-cta" target="_blank" rel="noopener noreferrer">
+              <a href="/cv/cv-rodrigo-coelho-dev-web.pdf" className="btn-cta" target="_blank" rel="noopener noreferrer">
                 <span>{currentContent.downloadCV}</span>
                 <span className="btn-arrow">→</span>
               </a>
