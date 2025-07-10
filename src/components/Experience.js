@@ -6,7 +6,7 @@ const experiences = {
     {
       company: 'Groupe Conseil Manso & Baehr',
       title: 'Designer Web (UI/UX)',
-      period: '2019-2022',
+      period: '2019-2023',
       location: 'Longueuil, Québec',
       tasks: [
         'Transposition de maquettes (via Figma et Photoshop) en format HTML et CSS pour des sites web responsifs et esthétiques.',
@@ -46,7 +46,7 @@ const experiences = {
     {
       company: 'Groupe Conseil Manso & Baehr',
       title: 'Web Designer (UI/UX)',
-      period: '2019-2022',
+      period: '2019-2023',
       location: 'Longueuil, Quebec',
       tasks: [
         'Transformed mockups (via Figma and Photoshop) into HTML and CSS format for responsive and aesthetic websites.',
