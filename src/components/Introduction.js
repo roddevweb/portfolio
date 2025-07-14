@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const content = {
   fr: {
     greeting: "Bonjour, je suis",
-    role: "UX/UI & Développeur Front-End",
+    role: "Intégrateur Multimédia",
     description: "J'allie design thinking et expertise technique pour créer des expériences numériques percutantes. Je comprends les processus de bout en bout, les exigences d'affaires et les stratégies marketing pour livrer des solutions qui génèrent de la valeur pour l'entreprise.",
     downloadCV: "Télécharger CV",
     discover: "Découvrez mes projets"
@@ -120,7 +120,7 @@ const Introduction = ({ language = 'fr' }) => {
           <div className="hero-text">
             <span className="hero-greeting" ref={headingRef}>{currentContent.greeting}</span>
             <h1 className="hero-name" ref={nameRef}>Rodrigo <span>Coelho</span></h1>
-            <h2 className="hero-role" ref={roleRef}>{currentContent.role}</h2>
+            {/* <h2 className="hero-role" ref={roleRef}>{currentContent.role}</h2> */}
             
             <p className="hero-description" ref={descriptionRef}>
               {currentContent.description}
